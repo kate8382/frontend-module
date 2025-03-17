@@ -1,0 +1,254 @@
+.table-container__title {
+  margin-bottom: 26px;
+  font-size: 24px;
+}
+
+.table {
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.table__tr-head {
+  display: grid;
+  grid-template-columns: 12% 22% 15% 15% 15% 21%;
+  align-items: flex-end;
+  padding: 0 20px;
+}
+
+.table__tr {
+  display: grid;
+  grid-template-columns: 12% 22% 15% 15% 15% 21%;
+  align-items: center;
+  min-height: 60px;
+  padding: 20px;
+  font-size: 14px;
+  color: var(--light-black-color);
+  border-bottom: 1px solid var(--light-grey-color);
+}
+
+.table__sort-btn {
+  align-items: center;
+  gap: 1px;
+  width: auto;
+  max-height: 17px;
+  font-weight: 400;
+  font-size: 12px;
+  text-align: left;
+  color: var(--text-color);
+  transition: color 0.3s ease-in-out;
+}
+
+.sort-btn-time {
+  position: relative;
+  align-items: flex-end;
+  gap: 0;
+  max-width: 105px;
+  min-height: 33px;
+}
+
+.time-create {
+  position: absolute;
+  top: 20px;
+  right: 37px;
+}
+
+.time-change {
+  position: absolute;
+  top: 20px;
+  right: 23px;
+}
+
+.table__sort-btn:focus {
+  color: var(--focus-color);
+}
+
+.table__sort-btn:hover {
+  color: var(--hover-color);
+}
+
+.table__sort-btn:active {
+  color: var(--active-color);
+}
+
+.table__th-text {
+  min-height: 7px;
+  font-weight: 400;
+  font-size: 12px;
+  text-align: left;
+  color: var(--text-color);
+}
+
+.table__list {
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  background-color: var(--white-color);
+}
+
+.table__list.load {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  background-color: var(--white-color);
+}
+
+.table__tr:hover {
+  border-bottom: 1px solid var(--border-grey-color);
+}
+
+.table__td-id {
+  padding: 0;
+  font-size: 12px;
+  color: var(--text-color);
+}
+
+.table__td-FIO {
+  flex-wrap: wrap;
+  padding: 0;
+  width: 90%;
+}
+
+.table__td-data {
+  gap: 5px;
+  padding: 0;
+}
+
+.time {
+  color: var(--text-color);
+}
+
+.table__td-contacts {
+  padding: 0;
+}
+
+.contacts {
+  flex-wrap: wrap;
+  gap: 7px;
+  width: 90%;
+}
+
+.contact-icon {
+  width: 16px;
+  height: 16px;
+}
+
+
+/* Стили для отображения количества скрытых контактов */
+.table__td-contacts .more-contacts {
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid var(--focus-color);
+  font-size: 8px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--light-black-color);
+}
+
+.more-contacts:focus {
+  color: var(--focus-color);
+  border-color: var(--focus-color);
+}
+
+.more-contacts:hover {
+  border-color: var(--hover-color);
+}
+
+.more-contacts:active {
+  color: var(--active-color);
+  border-color: var(--active-color);
+}
+
+/* Стили для всплывающего окна контакта */
+.contact-tooltip {
+  position: absolute;
+  display: none;
+  z-index: 1;
+  white-space: nowrap;
+  max-width: 15%;
+  height: 30px;
+  padding: 7px 14px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--white-color);
+  background-color: var(--light-black-color);
+}
+
+.contact-tooltip::after {
+  content: '';
+  position: absolute;
+  /* Положение стрелки */
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--light-black-color) transparent transparent transparent;
+}
+
+/* Общий стиль для типа контакта */
+.contact-type {
+  font-weight: 400;
+}
+
+.table__td-actions {
+  padding: 0;
+}
+
+.table__actions-btn {
+  gap: 30px;
+}
+
+.table__btn-edit,
+.table__btn-delete {
+  gap: 1px;
+  width: 45%;
+  color: var(--light-black-color);
+}
+
+.table__btn-edit.loading {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.loading-icon {
+  animation: spin 1s linear infinite;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+.table__btn-edit:focus {
+  color: var(--focus-color);
+}
+
+.table__btn-edit:hover {
+  color: var(--hover-color);
+}
+
+.table__btn-edit:active {
+  color: var(--active-color);
+}
+
+.table__btn-delete:focus {
+  color: var(--black-color);
+}
+
+.table__btn-delete:hover {
+  color: var(--light-black-color);
+}
+
+.table__btn-delete:active {
+  color: var(--red-color);
+}
+
+.pencil-icon,
+.delete-icon {
+  align-items: center;
+}

@@ -1,0 +1,142 @@
+@media (max-width: 950px) {
+
+  /* table */
+  .table__tr-head {
+    grid-template-columns: 10% 29% 15% 15% 16% 15%;
+  }
+
+  .time-create {
+    right: 28px;
+  }
+
+  .time-change {
+    right: 17px;
+  }
+
+  .table__tr {
+    grid-template-columns: 10% 29% 15% 15% 16% 15%;
+  }
+
+  .table__td-data {
+    flex-direction: column;
+    gap: 5px;
+    width: 90%;
+  }
+
+  .table__td-actions {
+    width: 90%;
+  }
+
+  .table__actions-btn {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .table__btn-edit,
+  .table__btn-delete {
+    width: 100%;
+  }
+
+  /* modal */
+  .modal .modal__content {
+    width: 59%;
+  }
+}
+
+@media (max-width: 720px),
+(orientation: landscape) and (max-width: 720px) {
+
+  /* header */
+  .header__container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  .header__logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* main */
+  .main__container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* table */
+  .table-container {
+    /* Добавляем горизонтальную прокрутку */
+    overflow-x: auto;
+  }
+
+  .table-container__title {
+    margin-bottom: 20px;
+  }
+
+  .table {
+    /* Фиксированная ширина таблицы */
+    width: 700px;
+    margin-bottom: 20px;
+  }
+
+  .table__tr-head {
+    padding: 0 10px;
+  }
+
+  .time-create {
+    right: 34px;
+  }
+
+  .time-change {
+    right: 22px;
+  }
+
+  .table__tr {
+    padding: 10px;
+  }
+
+  /* modal */
+  .modal .modal__content {
+    width: 93%;
+  }
+
+  .close {
+    margin-right: 15px;
+    margin-top: -18px;
+  }
+
+  .modal__title {
+    margin-left: 15px;
+    margin-bottom: 16px;
+    width: 260px;
+    height: 25px;
+  }
+
+  .modal__title-id {
+    margin-left: 5px;
+  }
+
+  .form__name {
+    padding: 0 15px;
+  }
+
+  .input-surname,
+  .input-name,
+  .input-lastname {
+    height: 25px;
+  }
+
+  .form__contacts {
+    padding: 25px 15px;
+  }
+
+  .contacts-select {
+    width: 45%;
+    padding: 10px 4px 10px 10px;
+    background-position: right 4px center;
+  }
+}
