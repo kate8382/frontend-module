@@ -102,7 +102,7 @@ export function validateContacts(formContacts) {
 
   const phoneRegex = /^\+7\s\(\d{2,3}\)\s\d{2,3}-\d{2}-\d{2}$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const urlRegex = /^(https?:\/\/)?(www\.)?(facebook\.com|vk\.com)\/[a-zA-Z0-9(.?)?]/;
+  const urlRegex = /^(https?:\/\/)?(www\.)?(facebook\.com|fb\.com|vk\.com)\/[a-zA-Z0-9(.?)?]/;
 
   for (const contactDiv of contactDivs) {
     const select = contactDiv.querySelector('.contacts-select');
