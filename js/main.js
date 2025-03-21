@@ -53,19 +53,6 @@ import { initializeModalElements, setupModalEventListeners, openEditModal } from
         console.error(`Client with ID ${clientId} not found`);
       }
     }
-    // fetch(`http://localhost:3000/api/clients/${clientId}`)
-    //   .then(response => {
-    //     if (!response.ok) {
-    //       throw new Error('Client not found');
-    //     }
-    //     return response.json();
-    //   })
-    //   .then(client => {
-    //     openEditModal(client, elements, clientsList, renderClientsTable, filterInp, getClientItem, sortClientsTable, switchSort);
-    //   })
-    //   .catch(error => {
-    //     console.error(`Client with ID ${clientId} not found:`, error);
-    //   });
   }
 
   // Проверка hash-части URL при загрузке страницы
@@ -96,6 +83,7 @@ import { initializeModalElements, setupModalEventListeners, openEditModal } from
       filterInp.value = selectedItem;
       autocompleteList.innerHTML = '';
       highlightTableRow(selectedItem);
+      filterInp.value = ''; // Очистить поле ввода фильтрации
     }
   });
 
@@ -121,10 +109,11 @@ import { initializeModalElements, setupModalEventListeners, openEditModal } from
     } else if (e.key === 'Enter') {
       e.preventDefault();
       if (index >= 0) {
-        const selectedItem = items[index].textContent;
+        const selectedItem = items[index].textContent; // Логирование выбранного элемента
         filterInp.value = selectedItem;
         autocompleteList.innerHTML = '';
         highlightTableRow(selectedItem);
+        filterInp.value = ''; // Очистить поле ввода фильтрации
       }
     }
 
@@ -139,31 +128,32 @@ import { initializeModalElements, setupModalEventListeners, openEditModal } from
     autocompleteList.innerHTML = '';
     items.forEach(item => {
       const li = document.createElement('li');
-      li.textContent = item;
+      li.textContent = `${item.surname} ${item.name} ${item.lastName}`;
       autocompleteList.appendChild(li);
     });
   }
 
   // Функция для выделения строки таблицы
-  function highlightTableRow(text) {
+  function highlightTableRow(selectedItem) {
     const rows = document.querySelectorAll('.table__tr');
+    let found = false;
     rows.forEach(row => {
-      row.classList.remove('highlight');
-      if (row.textContent.toLowerCase().includes(text.toLowerCase())) {
+      const cells = row.querySelectorAll('td');
+      const fullName = `${cells[1].textContent} ${cells[2].textContent} ${cells[3].textContent}`;
+      // Проверяем, содержит ли полное имя выбранный элемент
+      if (fullName.toLowerCase().includes(selectedItem.toLowerCase())) {
+        row.style.display = ''; // Показать строку
         row.classList.add('highlight');
+        found = true;
+      } else {
+        row.style.display = 'none'; // Скрыть строку
+        row.classList.remove('highlight');
       }
     });
+    if (!found) {
+      rows.forEach(row => row.style.display = ''); // Показать все строки, если ничего не найдено
+    }
   }
-
-  // Фильтрация с задержкой
-  // let filterTimeout;
-  // filterInp.addEventListener('input', () => {
-  //   clearTimeout(filterTimeout);
-  //   filterTimeout = setTimeout(() => {
-  //     filterInp.value = checkFirstLetter(filterInp.value);
-  //     renderClientsTable(clientsList, filterInp, (client) => getClientItem(client, elements, clientsList, renderClientsTable, filterInp, getClientItem, sortClientsTable, switchSort), sortClientsTable, switchSort, elements, clientsList);
-  //   }, 300);
-  // });
 
   // Сортировка
   document.getElementById('sort-ID').addEventListener('click', () => {
