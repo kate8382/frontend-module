@@ -12,7 +12,7 @@ export async function getClientsServer(clientIds = []) {
       return response.json();
     }));
 
-    console.log('Fetched clients data:', data); // Добавьте логирование здесь
+    console.log('Fetched clients data:', data);
     return data;
   } catch (error) {
     console.error('Error fetching clients:', error);
@@ -51,3 +51,16 @@ export async function deleteClientServer(id) {
   return data;
 }
 
+// Autocomplit
+export async function getAutocompleteItems(query) {
+  try {
+    const response = await fetch(`http://localhost:3000/api/clients/autocomplete?query=${query}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch autocomplete items');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching autocomplete items:', error);
+    return [];
+  }
+}
