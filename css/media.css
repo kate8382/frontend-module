@@ -61,6 +61,10 @@
     height: 36px;
   }
 
+  .autocomplete-list li {
+    padding: 5px;
+  }
+
   /* main */
   .main__container {
     padding-left: 10px;

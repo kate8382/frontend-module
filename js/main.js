@@ -66,12 +66,14 @@ import { initializeModalElements, setupModalEventListeners, openEditModal } from
   filterInp.addEventListener('input', async () => {
     clearTimeout(filterTimeout);
     filterTimeout = setTimeout(async () => {
-      const query = filterInp.value.trim().toLowerCase();
+      const query = checkFirstLetter(filterInp.value.trim().toLowerCase());
       if (query) {
         const items = await getAutocompleteItems(query);
         renderAutocompleteList(items);
+        autocompleteList.style.visibility = 'visible'; // Показать список автодополнения
       } else {
         autocompleteList.innerHTML = '';
+        autocompleteList.style.visibility = 'hidden'; // Скрыть список автодополнения
       }
     }, 300);
   });
@@ -84,6 +86,7 @@ import { initializeModalElements, setupModalEventListeners, openEditModal } from
       autocompleteList.innerHTML = '';
       highlightTableRow(selectedItem);
       filterInp.value = ''; // Очистить поле ввода фильтрации
+      autocompleteList.style.visibility = 'hidden'; // Скрыть список автодополнения
     }
   });
 
@@ -112,8 +115,15 @@ import { initializeModalElements, setupModalEventListeners, openEditModal } from
         const selectedItem = items[index].textContent; // Логирование выбранного элемента
         filterInp.value = selectedItem;
         autocompleteList.innerHTML = '';
+        autocompleteList.style.visibility = 'hidden'; // Скрыть список автодополнения
+        // Выделение строки таблицы
         highlightTableRow(selectedItem);
         filterInp.value = ''; // Очистить поле ввода фильтрации
+      } else {
+        // Если клиент не найден, очистить поле ввода фильтрации
+        filterInp.value = '';
+        autocompleteList.innerHTML = '';
+        autocompleteList.style.visibility = 'hidden'; // Скрыть список автодополнения
       }
     }
 
@@ -133,14 +143,13 @@ import { initializeModalElements, setupModalEventListeners, openEditModal } from
     });
   }
 
-  // Функция для выделения строки таблицы
+  // Функция для выделения строки таблицы и скрытия остальных строк
   function highlightTableRow(selectedItem) {
     const rows = document.querySelectorAll('.table__tr');
     let found = false;
     rows.forEach(row => {
       const cells = row.querySelectorAll('td');
       const fullName = `${cells[1].textContent} ${cells[2].textContent} ${cells[3].textContent}`;
-      // Проверяем, содержит ли полное имя выбранный элемент
       if (fullName.toLowerCase().includes(selectedItem.toLowerCase())) {
         row.style.display = ''; // Показать строку
         row.classList.add('highlight');

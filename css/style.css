@@ -94,6 +94,8 @@ svg {
 }
 
 .autocomplete-list {
+  visibility: hidden;
+  /* Скрыть элемент, но сохранить размеры и бордер */
   position: absolute;
   z-index: 1;
   width: 55.3%;
@@ -108,20 +110,18 @@ svg {
 
 .autocomplete-list li {
   padding: 10px;
+  font-size: 14px;
   cursor: pointer;
 }
 
 .autocomplete-list li.selected,
 .autocomplete-list li:hover {
-  background-color: var(--hover-color);
-  color: var(--white-color);
+  background-color: var(--grey-color);
 }
 
 .table__tr.highlight {
-  background-color: var(--hover-color);
-  color: var(--white-color);
+  border-bottom: 1px solid var(--border-grey-color);
 }
-
 
 /* main */
 .main__container {
