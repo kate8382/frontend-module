@@ -20,7 +20,7 @@ This project represents the frontend part of the application with the following 
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/EkaterinaSevciuc/frontend-module.git
+   git clone git@github.com:kate8382/frontend-module.git
    ```
 
 2. Navigate to the project directory:
