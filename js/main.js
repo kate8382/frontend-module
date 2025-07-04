@@ -3,8 +3,6 @@ import { checkFirstLetter, renderClientsTable, sortClientsTable, getClientItem }
 import { initializeModalElements, setupModalEventListeners, openEditModal } from './modal.js';
 
 (async function () {
-  'use strict'
-
   // 1. Данные
   const loadingIndicator = document.getElementById('loading-indicator');
   const clientsTable = document.getElementById('clients-table');
