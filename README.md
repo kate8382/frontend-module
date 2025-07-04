@@ -2,7 +2,10 @@
 
 ## Description
 
-This project represents the frontend part of the application with the following functionality:
+This project represents the frontend part of the application, developed according to a Figma design mockup. Many interface styles and dynamic UI elements were implemented using JavaScript to match the design requirements.
+
+**Key features:**
+- Fully responsive layout for desktop, tablet, and mobile devices
 - User authentication and authorization
 - Form validation before submitting to the server
 - Dashboard with real-time data visualization
@@ -10,11 +13,11 @@ This project represents the frontend part of the application with the following 
 - Data sorting and searching
 - Autocomplete functionality in the filter input
 - Integration with backend API for data fetching and manipulation
-- Responsive design for mobile and desktop
 - Modal window animations
 - Loading indicators
-- Hash and hashchange functionality
+- Hash and hashchange functionality (open modals by URL)
 - BEM (Block Element Modifier) methodology for CSS class naming
+- Modern ES6+ JavaScript (modules, async/await, arrow functions, etc.)
 
 ## Installation
 
